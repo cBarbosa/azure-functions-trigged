@@ -5,3 +5,4 @@
 * https://www.youtube.com/watch?v=N6nlLyj8-Ho
 * https://www.youtube.com/watch?v=smYkFWnE-fw&t=669s
 * https://www.youtube.com/watch?v=557kiOUffdw
+* https://www.codemag.com/article/1911051/get-started-with-serverless-azure-functions

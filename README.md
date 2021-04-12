@@ -1,5 +1,10 @@
 # azure-functions-trigged
 
+
+## start applicationn
+func host start
+
+
 ## Examples
 * https://www.youtube.com/watch?v=GLtP9ue0Rp0
 * https://www.youtube.com/watch?v=N6nlLyj8-Ho

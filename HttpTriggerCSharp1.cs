@@ -1,15 +1,24 @@
 using System.Collections.Generic;
 using System.Net;
+using System.Threading.Tasks;
+using functions.Services.Interfaces;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
 namespace AllService.Function
 {
-    public static class HttpTriggerCSharp1
+    public class HttpTriggerCSharp1
     {
+        private readonly IMailService _mailService;
+
+        public HttpTriggerCSharp1(IMailService mailService)
+        {
+            _mailService = mailService;
+        }
+
         [Function("HttpTriggerCSharp1")]
-        public static HttpResponseData Run(
+        public async Task<HttpResponseData> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
             FunctionContext executionContext)
         {
@@ -20,6 +29,8 @@ namespace AllService.Function
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
             response.WriteString("Welcome to Azure Functions!");
+
+            await _mailService.SendInvitation("teste01@spam.com");
 
             return response;
         }
